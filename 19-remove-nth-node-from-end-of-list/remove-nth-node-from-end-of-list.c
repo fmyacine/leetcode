@@ -10,7 +10,7 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
     if ( head == NULL ) return head;
     
     struct ListNode* q = malloc(sizeof(struct ListNode));
-    q = head;
+    q = head; 
     int cpt = 0;
 
     while( q != NULL) {
@@ -26,15 +26,14 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
         head = head->next;
         free(toRemove);
     } else {
-        
         for(int i = 0 ; i < cpt - 1 ; i++){
-        q = q->next;
+            q = q->next;
         }
 
-        // Remove the nth node
-        struct ListNode* toRemove = q->next;
-        q->next = toRemove->next;
-        free(toRemove);
+        struct ListNode* P;
+        P = q->next;
+        q->next = P->next;
+        free(P);
     }
 
     return head;
