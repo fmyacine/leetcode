@@ -7,8 +7,9 @@ class Solution:
             while(start <= end):
                 mid = (start + end ) // 2
                 if target == matrix[i][mid]:
-                    return matrix[i][mid]
+                    return True
                 elif target > matrix[i][mid]:
                     start = mid + 1
                 else:
                     end = mid - 1 
+        return False
